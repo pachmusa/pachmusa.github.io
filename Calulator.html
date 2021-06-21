@@ -4,7 +4,6 @@
      <style>
        body{color:#484545}
        .application_number{
-         font-family: sans-serif;
          width:15px;
        }
        .title {
@@ -22,13 +21,16 @@
          font-family: sans-serif;
          padding-top:6px;
        }
+       .applications{
+       font-family: sans-serif;
+       }
      </style>
    </head>
     <body>
       <div>
           <h1 class="title">ERAS Application Calculator</h1>
           <p class="specialty-title">Specialty #1</p>
-          <p>How many applications/programs? <input type="text" name="application_number" class="application_number"></p>
+          <p class="applications">How many applications/programs? <input type="text" name="application_number" class="application_number"></p>
           <button class="add-specialty">+ Add another specialty</button>
           <p class="total">Total fee:</p>
       </div>
