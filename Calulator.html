@@ -33,7 +33,9 @@
        }
      </style>
      <script>
-       
+       function addNewSpecialty() {
+          alert('Clicked!'); 
+       }
      </script>
    </head>
     <body>
@@ -45,7 +47,7 @@
             <input type="number" name="application_number" class="application_number" min="1" max="50">
             <img class="remove-specialty" src="remove-icon.png" />
           </div>
-          <button class="add-specialty">+ Add another specialty</button>
+          <button class="add-specialty" onclick="addNewSpecialty()">+ Add another specialty</button>
           <p class="total">Total fee:</p>
       </div>
      </body>
