@@ -36,11 +36,13 @@
     <body>
       <div>
         <h1 class="title">ERAS Application Calculator</h1>
-        <div id="application-number-box-first" class="application-number-box">
-          <p class="specialty-title">Specialty #<span class="specialty-count">1</span></p>
-          <span class="application_number_text">How many applications/programs?</span>
-          <input type="number" name="application_number" class="application_number" min="1" max="50">
-          <img class="remove-specialty" src="remove-icon.png"/ style="display: none;">
+        <div id="specialty-box">
+          <div id="application-number-box-first" class="application-number-box">
+            <p class="specialty-title">Specialty #<span class="specialty-count">1</span></p>
+            <span class="application_number_text">How many applications/programs?</span>
+            <input type="number" name="application_number" class="application_number" min="1" max="50">
+            <img class="remove-specialty" src="remove-icon.png"/ style="display: none;">
+          </div>
         </div>
         <button class="add-specialty" onclick="addNewSpecialty()">+ Add another specialty</button>
         <p class="total">Total fee: $<span class="total-fee">0</span></p>
@@ -56,10 +58,10 @@
           });
 
           new_specialty.querySelectorAll('.application_number').forEach(function(element) {
-             element.value = 1;
+             element.value = '';
           });
 
-          first_specialty_box.after(new_specialty);
+          document.querySelector('#specialty-box').append(new_specialty);
 
           specialtyCounter();
           calculateFee();
