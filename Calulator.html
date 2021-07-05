@@ -4,7 +4,7 @@
       <style>
        body{color:#484545}
        .application_number{
-         width:30px;
+         width:50px;
          text-align:center
        }
        .title {
@@ -53,6 +53,10 @@
 
           new_specialty.querySelectorAll('.remove-specialty').forEach(function(element) {
              element.style.display = 'inline';
+          });
+
+          new_specialty.querySelectorAll('.application_number').forEach(function(element) {
+             element.value = 1;
           });
 
           first_specialty_box.after(new_specialty);
