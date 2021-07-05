@@ -40,7 +40,7 @@
           <p class="specialty-title">Specialty #1</p>
           <span class="application_number_text">How many applications/programs?</span>
           <input type="number" name="application_number" class="application_number" min="1" max="50">
-          <img class="remove-specialty" src="remove-icon.png"/>
+          <img class="remove-specialty" src="remove-icon.png"/ style="display: none;">
         </div>
         <button class="add-specialty" onclick="addNewSpecialty()">+ Add another specialty</button>
         <p class="total">Total fee:</p>
@@ -50,12 +50,17 @@
         function addNewSpecialty() {
           var first_specialty_box = document.querySelector('#application-number-box-first');
           var new_specialty = first_specialty_box.cloneNode(true);
+
+          new_specialty.querySelectorAll('.remove-specialty').forEach(function(element) {
+             element.style.display = 'inline';
+          });
+
           first_specialty_box.after(new_specialty);
         }
 
-        document.addEventListener('click', function(e) {
-          if(e.target.className == 'remove-specialty'){
-            e.target.parentNode.remove();
+        document.addEventListener('click', function(event) {
+          if(event.target.className == 'remove-specialty'){
+            event.target.parentNode.remove();
           }
         });
       </script>
