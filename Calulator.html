@@ -62,6 +62,7 @@
           first_specialty_box.after(new_specialty);
 
           specialtyCounter();
+          calculateFee();
         }
 
         function specialtyCounter() {
@@ -72,10 +73,39 @@
           });
         }
 
+        function calculateFee() {
+          var total_fee = 0;
+          document.querySelectorAll('.application_number').forEach(function(element) {
+            if(element.value >= 1 && element.value <= 10) {
+              total_fee = total_fee + 99;
+            }
+
+            if(element.value >= 11 && element.value <= 20) {
+              total_fee = total_fee + (16 * element.value);
+            }
+
+            if(element.value >= 21 && element.value <= 30) {
+              total_fee = total_fee + (20 * element.value);
+            }
+
+            if(element.value >= 31) {
+              total_fee = total_fee + (26 * element.value);
+            }
+          });
+          document.querySelector('.total-fee').textContent = total_fee;
+        }
+
         document.addEventListener('click', function(event) {
           if(event.target.className == 'remove-specialty'){
             event.target.parentNode.remove();
             specialtyCounter();
+            calculateFee();
+          }
+        });
+
+        document.addEventListener('change', function(event) {
+          if(event.target.className == 'application_number'){
+            calculateFee();
           }
         });
       </script>
