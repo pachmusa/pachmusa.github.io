@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html>
-   <head>
-     <style>
+    <head>
+      <style>
        body{color:#484545}
        .application_number{
          width:30px;
@@ -31,29 +31,33 @@
        .remove-specialty {
          width: 20px; 
        }
-     </style>
-     <script>
-       function addNewSpecialty() {
-         var first_specialty_box = document.querySelector('#application-number-box-first');
-         var new_specialty = first_specialty_box.cloneNode(true);
-         first_specialty_box.after(new_specialty);
-       }
-       document.querySelector(".remove-specialty").addEventListener("click", (e) => {
-         alert("Hello World");
-       });
-     </script>
-   </head>
+      </style>
+    </head>
     <body>
       <div>
-          <h1 class="title">ERAS Application Calculator</h1>
-          <div id="application-number-box-first" class="application-number-box">
-            <p class="specialty-title">Specialty #1</p>
-            <span class="application_number_text">How many applications/programs?</span>
-            <input type="number" name="application_number" class="application_number" min="1" max="50">
-            <img class="remove-specialty" src="remove-icon.png"/>
-          </div>
-          <button class="add-specialty" onclick="addNewSpecialty()">+ Add another specialty</button>
-          <p class="total">Total fee:</p>
+        <h1 class="title">ERAS Application Calculator</h1>
+        <div id="application-number-box-first" class="application-number-box">
+          <p class="specialty-title">Specialty #1</p>
+          <span class="application_number_text">How many applications/programs?</span>
+          <input type="number" name="application_number" class="application_number" min="1" max="50">
+          <img class="remove-specialty" src="remove-icon.png"/>
+        </div>
+        <button class="add-specialty" onclick="addNewSpecialty()">+ Add another specialty</button>
+        <p class="total">Total fee:</p>
       </div>
-     </body>
+
+      <script>
+        function addNewSpecialty() {
+          var first_specialty_box = document.querySelector('#application-number-box-first');
+          var new_specialty = first_specialty_box.cloneNode(true);
+          first_specialty_box.after(new_specialty);
+        }
+
+        document.addEventListener('click', function(e) {
+          if(e.target.className == 'remove-specialty'){
+            e.target.parentNode.remove();
+          }
+        });
+      </script>
+    </body>
   </html>
