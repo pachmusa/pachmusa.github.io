@@ -37,7 +37,7 @@
       <div>
         <h1 class="title">ERAS Application Calculator</h1>
         <div id="application-number-box-first" class="application-number-box">
-          <p class="specialty-title">Specialty #1</p>
+          <p class="specialty-title">Specialty #<span class="specialty-count">1</span></p>
           <span class="application_number_text">How many applications/programs?</span>
           <input type="number" name="application_number" class="application_number" min="1" max="50">
           <img class="remove-specialty" src="remove-icon.png"/ style="display: none;">
@@ -56,11 +56,22 @@
           });
 
           first_specialty_box.after(new_specialty);
+
+          specialtyCounter();
+        }
+
+        function specialtyCounter() {
+          var specialty_number_count = 1
+          document.querySelectorAll('.specialty-count').forEach(function(element) {
+            element.textContent = specialty_number_count;
+            specialty_number_count = specialty_number_count + 1;
+          });
         }
 
         document.addEventListener('click', function(event) {
           if(event.target.className == 'remove-specialty'){
             event.target.parentNode.remove();
+            specialtyCounter();
           }
         });
       </script>
