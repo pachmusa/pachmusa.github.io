@@ -78,20 +78,23 @@
         function calculateFee() {
           var total_fee = 0;
           document.querySelectorAll('.application_number').forEach(function(element) {
-            if(element.value >= 1 && element.value <= 10) {
+            var number_of_applications = element.value
+            if(number_of_applications >= 1 && number_of_applications <= 10) {
               total_fee = total_fee + 99;
             }
 
-            if(element.value >= 11 && element.value <= 20) {
-              total_fee = total_fee + (16 * element.value);
+            if(number_of_applications >= 11 && number_of_applications <= 20) {
+              total_fee = total_fee + 99;
+              number_of_applications = number_of_applications - 10;
+              total_fee = total_fee + (16 * number_of_applications);
             }
 
-            if(element.value >= 21 && element.value <= 30) {
-              total_fee = total_fee + (20 * element.value);
+            if(number_of_applications >= 21 && number_of_applications <= 30) {
+              total_fee = total_fee + (20 * number_of_applications);
             }
 
-            if(element.value >= 31) {
-              total_fee = total_fee + (26 * element.value);
+            if(number_of_applications >= 31) {
+              total_fee = total_fee + (26 * number_of_applications);
             }
           });
           document.querySelector('.total-fee').textContent = total_fee;
