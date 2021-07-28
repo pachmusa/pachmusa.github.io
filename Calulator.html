@@ -79,23 +79,36 @@
           var total_fee = 0;
           document.querySelectorAll('.application_number').forEach(function(element) {
             var number_of_applications = element.value
-            if(number_of_applications >= 1 && number_of_applications <= 10) {
-              total_fee = total_fee + 99;
-            }
 
-            if(number_of_applications >= 11 && number_of_applications <= 20) {
+            // 1-10
+            if(number_of_applications >= 1) {
               total_fee = total_fee + 99;
               number_of_applications = number_of_applications - 10;
-              total_fee = total_fee + (16 * number_of_applications);
             }
 
-            if(number_of_applications >= 21 && number_of_applications <= 30) {
-              total_fee = total_fee + 99;
+
+            // 11-20
+            if(number_of_applications >= 1) {
+              if(number_of_applications <= 10) {
+                total_fee = total_fee + (16 * number_of_applications);
+              } else {
+                total_fee = total_fee + (16 * 10);
+              }
               number_of_applications = number_of_applications - 10;
-              total_fee = total_fee + (20 * number_of_applications);
+            }
+
+            // 21-30
+            if(number_of_applications >= 1) {
+              if(number_of_applications <= 10) {
+                total_fee = total_fee + (20 * number_of_applications);
+              } else {
+                total_fee = total_fee + (20 * 10);
+              }
+              number_of_applications = number_of_applications - 10;
             }
             
-            if(number_of_applications >= 31) {
+            // over 31
+            if(number_of_applications >= 1) {
               total_fee = total_fee + (26 * number_of_applications);
             }
           });
